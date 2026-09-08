@@ -1,17 +1,13 @@
-import Fastify, {FastifyInstance} from "fastify";
+import Fastify, { type FastifyInstance } from "fastify";
 
 export function buildApp(): FastifyInstance {
-//Initalize Fastify with logging enabled
-const app = Fastify({
-    logger: true
-})
+    const app = Fastify({
+        logger: true,
+    });
 
-//Declare a route
-app.get("/health", async(request, reply) => {
-    return { status: "ok" }
-})
+    app.get("/health", async () => {
+        return { status: "ok" };
+    });
 
-return app;
+    return app;
 }
-
-
